@@ -17,7 +17,6 @@ class Solution:
                 if curr.left:
                     queue.append(curr.left)
                 if curr.right:
-                    queue.append(curr.right)
-                if not curr.left and not curr.right:    
-                    total += curr.val
+                    queue.append(curr.right)   
+                total += curr.val
         return(total)
