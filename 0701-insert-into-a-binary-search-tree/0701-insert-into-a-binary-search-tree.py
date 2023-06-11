@@ -10,28 +10,30 @@ class Solution:
         if not root:
             return  TreeNode(val)
         
-        def dfs(node, parent):
-            
+        def dfs(node):
             if node is None:
                 newNode = TreeNode(val)
-                if val > parent.val:
-                    parent.right = newNode
-                else:
-                    parent.left = newNode
-                return
+                return newNode
             
-            parent = node
+            left= None
+            right = None
             
             if val < node.val:
-                dfs(node.left, parent)
+                left = dfs(node.left)
             else :
-                dfs(node.right, parent)
+                right = dfs(node.right)
+                
+                
+            if left:
+                node.left = left
+            if right:
+                node.right = right
             
             
             
             
             
-        dfs(root, None)
+        dfs(root)
         
         return root
         
