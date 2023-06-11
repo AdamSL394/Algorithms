@@ -15,7 +15,7 @@ class Solution:
                 newNode = TreeNode(val)
                 return newNode
             
-            left= None
+            left = None
             right = None
             
             if val < node.val:
@@ -29,8 +29,7 @@ class Solution:
             if right:
                 node.right = right
             
-            
-            
+            return None
             
             
         dfs(root)
