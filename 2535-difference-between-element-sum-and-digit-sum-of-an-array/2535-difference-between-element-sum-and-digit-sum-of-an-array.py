@@ -4,8 +4,6 @@ class Solution:
         stringOfNums = (''.join(str(x) for x in nums))
         elementSum = sum(nums)
         
-        print(elementSum,stringOfNums)
-        
         for number in stringOfNums:
             digitsum += int(number)
             
