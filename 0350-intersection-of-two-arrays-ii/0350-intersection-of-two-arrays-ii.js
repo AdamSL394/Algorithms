@@ -5,7 +5,7 @@
  */
 var intersect = function(nums1, nums2) {
     const res = []
-    hm = {}
+    const hm = {}
     for (num of nums1){
         if (hm[num]){
             hm[num] += 1
