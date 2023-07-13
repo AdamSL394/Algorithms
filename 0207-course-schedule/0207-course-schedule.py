@@ -5,44 +5,42 @@ class Projects:
         self.stats = 'Blank'
 
 class Solution:
-    
-
-    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-
-        aL = {}
-        seen = set()
-
-        if len(prerequisites) == 0:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:        
+        if not prerequisites:
             return True
-
-        for classes in prerequisites:
-            if classes[0] not in aL:
-                aL[classes[0]] = []
-            aL[classes[0]].append(classes[1])
-
-
-        def dfs(proj):
-            if proj in seen:
+        dic = {i: [] for i in range(numCourses)}
+        for crs, pre in prerequisites:
+            dic[crs].append(pre)
+#         dic = {}
+        
+#         for a , b in prerequisites:
+#             if a not in dic:
+#                 dic[a] = []
+#             dic[a].append(b)
+#             if b not in dic:    
+#                 dic[b] = []
+        
+        seen = set() 
+        
+        def dfs(node):
+            if node in seen:
                 return False
-            if proj not in aL:
+            if dic[node] == []:
                 return True
-            if aL[proj] == []:
-                return True
-        
-            seen.add(proj)
-            children = aL[proj]
-
-            for child in children:
-                if dfs(child) == False:
-                    return False
-            seen.remove(proj)
-            aL[proj] = []
+            seen.add(node)
+            
+            for nodes in dic[node]:
+                if not dfs(nodes): return False
+            seen.remove(node)
+            dic[node] = []
             return True
         
-        for curriculum in prerequisites:
-            projects = curriculum[0]
-            if not dfs(projects): return False
+        for c in range(numCourses):
+            if not dfs(c):
+                return False
         return True
+            
+
     
             
     
