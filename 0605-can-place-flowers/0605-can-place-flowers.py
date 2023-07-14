@@ -7,8 +7,9 @@ class Solution:
         flowerbed.insert(0, 0)
         N = len(flowerbed) - 1
         count = 0
+        
         for i in range(1, N):
             if flowerbed[i - 1] == 0 and flowerbed[i] == 0 and flowerbed[i + 1] == 0:
                 flowerbed[i] = 1
-                count += 1
-        return count >= n
+                n -= 1
+        return n <= 0
