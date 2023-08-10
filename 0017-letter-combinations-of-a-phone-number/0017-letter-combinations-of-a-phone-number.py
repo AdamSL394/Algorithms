@@ -17,17 +17,19 @@ class Solution:
         res = []
         
         
-        def helper(i,s):
-            if len(s) == len(digits):
-                res.append(s)
+        def helper(i,c):
+            if len(c) == len(digits):
+                res.append("".join(c))
                 return
             
             
             for v in phone[digits[i]]:
-                helper(i + 1, s +  v)
+                c.append(v)
+                helper(i + 1, c)
+                c.pop()
         
         if digits:
-            helper(0,'')
+            helper(0,[])
             
         return res   
         
