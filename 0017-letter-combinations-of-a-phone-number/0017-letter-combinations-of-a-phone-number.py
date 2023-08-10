@@ -26,8 +26,10 @@ class Solution:
             for v in phone[digits[i]]:
                 helper(i + 1, s +  v)
         
-        helper(0,'')
-        return(res)   
+        if digits:
+            helper(0,'')
+            
+        return res   
         
         
         
