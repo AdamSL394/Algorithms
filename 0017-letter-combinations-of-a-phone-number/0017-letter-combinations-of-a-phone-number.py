@@ -3,7 +3,6 @@ class Solution:
         if len(digits) == 0:
             return []
         
-        N = len(digits)
         phone = {
             '2':"abc",
             '3':"def",
@@ -25,7 +24,7 @@ class Solution:
             
             
             for v in phone[digits[i]]:
-                helper(i + 1, s = s +  v)
+                helper(i + 1, s +  v)
         
         helper(0,'')
         return(res)   
