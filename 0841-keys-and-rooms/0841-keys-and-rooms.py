@@ -4,50 +4,16 @@ class Solution:
         N = len(rooms)
         hasAccess = [False for _ in range(N)]
         hasAccess[0] = True
+        seen = set()
+        stack = [0]
         
-        for room in range(N):
-            for key in rooms[room]:
-                if hasAccess[room]:
-                    hasAccess[key] = True
-        
-        for room in range(N):
-            for key in rooms[room]:
-                if hasAccess[room]:
-                    hasAccess[key] = True
-                    
-        for room in range(N):
-            for key in rooms[room]:
-                if hasAccess[room]:
-                    hasAccess[key] = True
-        
-        for room in range(N):
-            for key in rooms[room]:
-                if hasAccess[room]:
-                    hasAccess[key] = True
-                    
-        for room in range(N):
-            for key in rooms[room]:
-                if hasAccess[room]:
-                    hasAccess[key] = True
-        
-        for room in range(N):
-            for key in rooms[room]:
-                if hasAccess[room]:
-                    hasAccess[key] = True
-        
-        for room in range(N):
-            for key in rooms[room]:
-                if hasAccess[room]:
-                    hasAccess[key] = True
-        for room in range(N):
-            for key in rooms[room]:
-                if hasAccess[room]:
-                    hasAccess[key] = True
-                    
-        for room in range(N):
-            for key in rooms[room]:
-                if hasAccess[room]:
-                    hasAccess[key] = True
+        while stack:
+            nei = stack.pop(0)
+            seen.add(nei)
+            for node in rooms[nei]:
+                if node not in seen:
+                    stack.append(node)
+                    hasAccess[node] = True
                     
         return all(hasAccess)
             
