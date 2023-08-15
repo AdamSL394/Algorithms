@@ -1,6 +1,5 @@
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        N = len(isConnected[0])
         G = {}
         
         for node in range(len(isConnected)):
@@ -12,14 +11,12 @@ class Solution:
                     G[level].append(i + 1)
                     
         stack = []
-        
         seen = set()
         count = 0
 
         for i in range(len(isConnected[0])):
-            level = i + 1
-            stack.append(level)
-            if level not in seen:
+            stack.append(i + 1)
+            if i + 1 not in seen:
                 while stack:
                     node = stack.pop(0)
                     seen.add(node)
