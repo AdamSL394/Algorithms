@@ -16,7 +16,7 @@ class Solution:
         seen = set()
         count = 0
 
-        for i,v in enumerate(isConnected[0]):
+        for i in range(len(isConnected[0])):
             level = i + 1
             stack.append(level)
             if level not in seen:
