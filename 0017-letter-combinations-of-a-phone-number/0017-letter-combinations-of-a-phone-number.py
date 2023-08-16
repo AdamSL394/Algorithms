@@ -17,21 +17,14 @@ class Solution:
         res = []
         
         
-        def helper(i,c):
-            if len(c) == len(digits):
-                res.append("".join(c))
+        def combos(i,s):
+            if len(s) == len(digits):
+                res.append(s)
                 return
             
-            
             for v in phone[digits[i]]:
-                c.append(v)
-                helper(i + 1, c)
-                c.pop()
-        
-        if digits:
-            helper(0,[])
+                combos(i + 1, s = s + v)
             
-        return res   
         
-        
-        
+        combos(0,'')
+        return res
