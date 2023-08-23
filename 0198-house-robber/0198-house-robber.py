@@ -1,13 +1,11 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        if len(nums) == 1:
-            return nums[0]
+        N = len(nums)
+        # [0,0,0,1,0]
+        houses = [0 for _ in range(N + 1)]
+        houses[-2] = nums[-1]
+
+        for cash in range(N - 2, -1, -1):
+            houses[cash] = max(houses[cash + 1], nums[cash] + houses[cash + 2])
         
-        n = len(nums)
-        combos = [0 for _ in range(n + 1)]
-        nums.insert(0,0)
-        combos[1] = nums[1]
-        
-        for house in range(1,len(nums)):
-            combos[house] = max(combos[house - 1] , nums[house] + combos[house - 2])
-        return max(combos[-1],combos[-2])
+        return max(houses[0],houses[-1])
