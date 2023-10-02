@@ -11,6 +11,4 @@ class Solution:
                         b += 1
                 
 
-        if a > b:
-            return True
-        return False
+        return a > b
