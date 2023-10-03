@@ -8,18 +8,13 @@ class Solution:
             if word.split()[1].isdigit():
                 numbers.append(word)
             else:
-                words.append(word.split())
+                words.append(word)
         
-        words.sort(key = lambda x: x[0])          
-        words.sort(key = lambda x: x[1:])
+        words.sort(key = lambda x: x.split()[0])          
+        words.sort(key = lambda x: x.split()[1:])
 
-
-        res = []
         
-        for word in words:
-            res.append(' '.join(word))
-        
-        return res + numbers
+        return words + numbers
 
         
         
