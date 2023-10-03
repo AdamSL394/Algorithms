@@ -1,12 +1,11 @@
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
-
-        fequencyCount = [0 for i in range(102)]
-        totalCount = 0
+        N = len(nums)
         
-        for num in nums:
-            fequencyCount[num] += 1
-
-        for count in fequencyCount:
-            totalCount += ((count) * (count - 1))/2
-        return(int(totalCount))
+        res = 0
+        
+        for i in range(N -1):
+            for j in range(i + 1,N):
+                if nums[i] == nums[j] and i < j:
+                    res += 1
+        return res
