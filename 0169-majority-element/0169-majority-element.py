@@ -12,11 +12,5 @@ class Solution:
             else:
                 count -= 1
                 
-        count = 0  
-        print(candidate)
-        for j in range(N):
-            if nums[j] == candidate:
-                count += 1
-                
-        if count > N / 2:
-            return candidate
+        
+        return candidate
