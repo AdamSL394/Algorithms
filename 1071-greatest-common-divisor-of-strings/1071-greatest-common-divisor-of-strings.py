@@ -1,14 +1,25 @@
 class Solution:
     def gcdOfStrings(self, str1: str, str2: str) -> str:
-        l1, l2 = len(str1) , len(str2)
-
         
-        def helper(word):
-            if l1 % word != 0 or l2 % word != 0:
-                return False
-            f1, f2 = l1 // word, l2 // word
-            return str1[:l] * f1 == str1 and str1[:l] * f2 == str2 
-        for l in range(min(l1,l2),0,-1):
-            if helper(l):
-                return str1[:l]
-        return ""
+        res = ''
+        def gcd(k):
+            
+            if (len(str2) % len(k) == 0 and len(str1) % len(k) == 0):
+                print(str2[:len(k)] * (len(str2) // len(k)) == str2)
+                if (str2[:len(k)] * (len(str1) // len(k))) == str1 and str2[:len(k)] * (len(str2) // len(k)) == str2:
+                    print(str2[:len(k)])
+                    return str2[:len(k)]
+                else:
+                    return ""
+            else:
+                return
+            
+            
+        
+        
+        for k in range(len(str2)-1,-1,-1):
+                if gcd(str2[k:]):
+                    res = gcd(str2[k:])
+        
+        return res
+            
